@@ -10,7 +10,7 @@ namespace AireMain.Classes
 {
     public class getMyStuff
     {
-        public static int DictionarySongsByArtist(string artistName, ref int i, ref int totalLyricLength)
+        public static int DictionarySongsByArtist(string artistName)
         {
             Dictionary<int, string> myDict = new Dictionary<int, string>();
             var url = "http://musicbrainz.org/ws/2/release-group/?query=artist:%22" + artistName + "%22%20AND%20primarytype:%22single%22";
@@ -27,11 +27,19 @@ namespace AireMain.Classes
             var i = 0;
             colourMagic.ohLookColorMagic("AL");
 
-          
-            loopSongTitles(artistName, myDict, titleList, ref i, ref totalLyricLength);
+            var totalLyricLength = 0;
+            var vMax = 0;
+            var vMin = 0;
 
-            Console.WriteLine("Total" + totalLyricLength);
-            Console.WriteLine("Total" + i);
+            loopSongTitles(artistName, myDict, titleList, ref i, ref totalLyricLength, ref vMax, ref vMin);
+
+            colourMagic.ohLookColorMagic("blah");
+            Console.WriteLine(artistName);
+            Console.WriteLine("Sum total of " + totalLyricLength + " words");
+            Console.WriteLine("Smallest number of words " + vMin);
+            Console.WriteLine("Largest number of words " + vMax);
+            Console.WriteLine("Total singles " + artistName + ": " + i);
+            Console.WriteLine("Average word, per single, for " + artistName + ": " + (totalLyricLength / i));
 
             //TODO Minimum
             //TODO Maximum
@@ -40,10 +48,10 @@ namespace AireMain.Classes
             return totalLyricLength / i;
         }
 
-        private static void loopSongTitles(string artistName, Dictionary<int, string> myDict, IEnumerable<XElement> titleList, ref int i, ref int totalLyricLength)
+        private static void loopSongTitles(string artistName, Dictionary<int, string> myDict, IEnumerable<XElement> titleList, ref int i, ref int totalLyricLength, ref int vMax, ref int vMin)
         {
             try
-            {
+            {  
                 foreach (var element in titleList)
                 {
                     if (!myDict.ContainsValue(element.Value.ToLower())) // TODO something like a task, maybe not dictionary!
@@ -53,9 +61,19 @@ namespace AireMain.Classes
                         {
                             totalLyricLength += l;
                             myDict.Add(i++, element.Value.ToLower());
-                            Console.WriteLine(i + " " + element.Value + " " +  totalLyricLength); 
-                            //TODO return the value of totalLyricLength and i
+                            //var spacer = 50 - element.Value.Length;
+
+                            Console.WriteLine(i + Microsoft.VisualBasic.Constants.vbTab + " " + element.Value + Microsoft.VisualBasic.Constants.vbTab +  totalLyricLength);  
                             //wondering about i, after task, async amends
+
+                            if(l > vMax)
+                            {
+                                vMax = l;
+                            }
+                            if (l < vMin || vMin == 0)
+                            {
+                                vMin = l;
+                            }
                         } 
                     }
                 } 

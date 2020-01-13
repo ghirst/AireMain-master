@@ -36,21 +36,13 @@ namespace AireMain
                 //Dictionary
                 Dictionary<string, int> myDict = new Dictionary<string, int>();
 
-                var i = 0;
-                var totalLyricLength  = 0;
-
                 //TODO get values for i and totalLyricLength back
-                Task lyricLength1 = GetAPI(artistName1, ref i, ref totalLyricLength);
-                Task lyricLength2 = GetAPI(artistName2, ref i, ref totalLyricLength);
+                Task lyricLength1 = GetAPI(artistName1);
+                Task lyricLength2 = GetAPI(artistName2);
 
                 await Task.WhenAll(lyricLength1, lyricLength2);
-
-
-                var w1 = " has an average of ";
-                var w2 = " words per single.";
-
-                Console.WriteLine(artistName1 + w1 + lyricLength1 + w2);
-                Console.WriteLine(artistName2 + w1 + lyricLength2 + w2);
+                 
+               
             }
             //TODO TEST!   
             catch (System.IO.IOException e)
@@ -76,11 +68,11 @@ namespace AireMain
             artistName2 = "Nina";
         }
 
-        private static async Task GetAPI(string artistName, ref int i, ref int totalLyricLength)
+        private static async Task GetAPI(string artistName)
         {
             await Task.Run(() =>
             {
-                var artistLyricLength = getMyStuff.DictionarySongsByArtist(artistName, ref i, ref totalLyricLength);
+                var artistLyricLength = getMyStuff.DictionarySongsByArtist(artistName);
 
                 return artistLyricLength;
             });
