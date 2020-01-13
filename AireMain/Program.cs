@@ -36,8 +36,12 @@ namespace AireMain
                 //Dictionary
                 Dictionary<string, int> myDict = new Dictionary<string, int>();
 
-                Task lyricLength1 = GetAPI(artistName1);
-                Task lyricLength2 = GetAPI(artistName2);
+                var i = 0;
+                var totalLyricLength  = 0;
+
+                //TODO get values for i and totalLyricLength back
+                Task lyricLength1 = GetAPI(artistName1, ref i, ref totalLyricLength);
+                Task lyricLength2 = GetAPI(artistName2, ref i, ref totalLyricLength);
 
                 await Task.WhenAll(lyricLength1, lyricLength2);
 
@@ -72,11 +76,11 @@ namespace AireMain
             artistName2 = "Nina";
         }
 
-        private static async Task GetAPI(string artistName)
+        private static async Task GetAPI(string artistName, ref int i, ref int totalLyricLength)
         {
             await Task.Run(() =>
             {
-                var artistLyricLength = getMyStuff.DictionarySongsByArtist(artistName);
+                var artistLyricLength = getMyStuff.DictionarySongsByArtist(artistName, ref i, ref totalLyricLength);
 
                 return artistLyricLength;
             });

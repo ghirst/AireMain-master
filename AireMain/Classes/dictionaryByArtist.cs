@@ -10,7 +10,7 @@ namespace AireMain.Classes
 {
     public class getMyStuff
     {
-        public static int DictionarySongsByArtist(string artistName)
+        public static int DictionarySongsByArtist(string artistName, ref int i, ref int totalLyricLength)
         {
             Dictionary<int, string> myDict = new Dictionary<int, string>();
             var url = "http://musicbrainz.org/ws/2/release-group/?query=artist:%22" + artistName + "%22%20AND%20primarytype:%22single%22";
@@ -27,8 +27,11 @@ namespace AireMain.Classes
             var i = 0;
             colourMagic.ohLookColorMagic("AL");
 
-            var totalLyricLength = 0;
+          
             loopSongTitles(artistName, myDict, titleList, ref i, ref totalLyricLength);
+
+            Console.WriteLine("Total" + totalLyricLength);
+            Console.WriteLine("Total" + i);
 
             //TODO Minimum
             //TODO Maximum
@@ -51,9 +54,11 @@ namespace AireMain.Classes
                             totalLyricLength += l;
                             myDict.Add(i++, element.Value.ToLower());
                             Console.WriteLine(i + " " + element.Value + " " +  totalLyricLength); 
+                            //TODO return the value of totalLyricLength and i
+                            //wondering about i, after task, async amends
                         } 
                     }
-                }
+                } 
             }
             catch (System.IO.IOException e)
             {
