@@ -1,21 +1,18 @@
-using AireMain.Classes; 
+using AireMain.Classes;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Xunit;
 
-namespace XUnitTestProject1
+[TestMethod]
+public void getLyricsLength()
 {
-    public class UnitTest1
-    {
-        [Fact]
-        public void ReturnArtistName()
-        {
-            // TODO : Write test code 
-            var artistName = "Coldplay";
-            var elementValue = "50";
+    // arrange
+    var artistName = "Coldplay";
+    var titleName = "Paradise";
+    double expected = 500;
 
-            getLyricsLength gLL = new getLyricsLength.GetLyricsLength(artistName, elementValue);
-            double res = gLL.Add(10, 10);
-            Assert.AreEqual(res, 20);
-        }
-        }
-    }
+    // act
+    var lengthofLyrics = new GetLyricsLength(artistName, titleName);
+
+    // assert
+    Assert.AreEqual(expected, lengthofLyrics);
 }
