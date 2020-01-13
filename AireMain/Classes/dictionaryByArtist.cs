@@ -30,7 +30,9 @@ namespace AireMain.Classes
             var totalLyricLength = 0;
             loopSongTitles(artistName, myDict, titleList, ref i, ref totalLyricLength);
 
-            //Tasks?
+            //TODO Minimum
+            //TODO Maximum
+            //Maybe a DB would just be easier usually! That or save into a session etc...
 
             return totalLyricLength / i;
         }
@@ -48,7 +50,7 @@ namespace AireMain.Classes
                         {
                             totalLyricLength += l;
                             myDict.Add(i++, element.Value.ToLower());
-                            Console.WriteLine(i + " " + element.Value + " " +  totalLyricLength);
+                            Console.WriteLine(i + " " + element.Value + " " +  totalLyricLength); 
                         } 
                     }
                 }
