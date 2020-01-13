@@ -61,9 +61,9 @@ namespace AireMain.Classes
                         {
                             totalLyricLength += l;
                             myDict.Add(i++, element.Value.ToLower());
-                            //var spacer = 50 - element.Value.Length;
+                            var spacer = 50 - element.Value.Length;
 
-                            Console.WriteLine(i + Microsoft.VisualBasic.Constants.vbTab + " " + element.Value + Microsoft.VisualBasic.Constants.vbTab +  totalLyricLength);  
+                            Console.WriteLine(i + Microsoft.VisualBasic.Constants.vbTab + " " + element.Value.PadRight(spacer) +  totalLyricLength);  
                             //wondering about i, after task, async amends
 
                             if(l > vMax)
