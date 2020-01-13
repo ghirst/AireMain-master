@@ -37,12 +37,11 @@ namespace AireMain
                 Dictionary<string, int> myDict = new Dictionary<string, int>();
 
                 //TODO get values for i and totalLyricLength back
+                //I could do an array but I'm doing that elsewheres, so let's show random bits!
                 Task lyricLength1 = GetAPI(artistName1);
                 Task lyricLength2 = GetAPI(artistName2);
 
-                await Task.WhenAll(lyricLength1, lyricLength2);
-                 
-               
+                await Task.WhenAll(lyricLength1, lyricLength2);                  
             }
             //TODO TEST!   
             catch (System.IO.IOException e)
@@ -53,6 +52,9 @@ namespace AireMain
             finally
             {
                 Console.WriteLine("Done");
+
+                string phoenix = cmdImgs.PhoenixIcon();
+                Console.WriteLine(phoenix);
                 Console.ReadLine();
             }
         }

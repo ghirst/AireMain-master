@@ -25,7 +25,7 @@ namespace AireMain.Classes
             //releaseTitles = x.Element(ns + "release-list").Descendants(ns + "title").Select(y => (string)y).ToArray()
             //Get song list from the albumns 
             var i = 0;
-            colourMagic.ohLookColorMagic("AL");
+            colourMagic.ohLookColorMagic("AireLogic");
 
             var totalLyricLength = 0;
             var vMax = 0;
@@ -61,7 +61,7 @@ namespace AireMain.Classes
                         {
                             totalLyricLength += l;
                             myDict.Add(i++, element.Value.ToLower());
-                            var spacer = 50 - element.Value.Length;
+                            var spacer = 80 - element.Value.Length; //Not quite right
 
                             Console.WriteLine(i + Microsoft.VisualBasic.Constants.vbTab + " " + element.Value.PadRight(spacer) +  totalLyricLength);  
                             //wondering about i, after task, async amends
