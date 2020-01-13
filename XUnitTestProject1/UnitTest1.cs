@@ -1,18 +1,22 @@
-using AireMain.Classes;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Xunit;
-
-[TestMethod]
-public void getLyricsLength()
+using NUnit.Framework;
+using System; 
+namespace AireMain.Classes.Tests.Defence
 {
-    // arrange
-    var artistName = "Coldplay";
-    var titleName = "Paradise";
-    double expected = 500;
+    [TestFixture]
+    public class LyricsTest
+    {
+        [Test]
+        public void CounterLyrics()
+        {
+            // arrange
+            var artistName = "Coldplay";
+            var titleName = "Paradise";
+            double expected = 500;
 
-    // act
-    var lengthofLyrics = new GetLyricsLength(artistName, titleName);
+            // act
+            var lengthOfLyrics = getLyricsLength(artistName, titleName);
 
-    // assert
-    Assert.AreEqual(expected, lengthofLyrics);
-}
+            //assert
+            Assert.AreEqual(expected, lengthOfLyrics);
+        }
+    }
