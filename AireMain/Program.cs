@@ -12,25 +12,18 @@ namespace AireMain
     class Program
     {
         static void Main(string[] args)
-        {
-             
+        {             
             MainAsync().Wait();
-
         }
 
         public static async Task MainAsync()
-        {
-
-            //     Console.WriteLine("Let's go grab the worlds songs!"); 
+        { 
+            Console.WriteLine("Let's go grab the worlds songs!"); 
             try
             {
                 string artistName1, artistName2;
 
-                getartistNames(out artistName1, out artistName2);
-                
-
-                //myDict.Add(artistName, 1); 
-                //myDict.Add(artistName, 2);
+                getartistNames(out artistName1, out artistName2); 
 
                 //TODO Loop artists
                 //Dictionary
@@ -46,6 +39,7 @@ namespace AireMain
             //TODO TEST!   
             catch (System.IO.IOException e)
             {
+                colourMagic.ohLookColorMagic("ohno");
                 Console.WriteLine("Something went wrong");
                 Console.WriteLine(e);
             }

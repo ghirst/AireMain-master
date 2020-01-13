@@ -51,7 +51,7 @@ namespace AireMain.Classes
         private static void loopSongTitles(string artistName, Dictionary<int, string> myDict, IEnumerable<XElement> titleList, ref int i, ref int totalLyricLength, ref int vMax, ref int vMin)
         {
             try
-            {  
+            {
                 foreach (var element in titleList)
                 {
                     if (!myDict.ContainsValue(element.Value.ToLower())) // TODO something like a task, maybe not dictionary!
@@ -63,10 +63,10 @@ namespace AireMain.Classes
                             myDict.Add(i++, element.Value.ToLower());
                             var spacer = 80 - element.Value.Length; //Not quite right
 
-                            Console.WriteLine(i + Microsoft.VisualBasic.Constants.vbTab + " " + element.Value.PadRight(spacer) +  totalLyricLength);  
+                            Console.WriteLine(i + Microsoft.VisualBasic.Constants.vbTab + " " + element.Value.PadRight(spacer) + totalLyricLength);
                             //wondering about i, after task, async amends
 
-                            if(l > vMax)
+                            if (l > vMax)
                             {
                                 vMax = l;
                             }
@@ -74,9 +74,9 @@ namespace AireMain.Classes
                             {
                                 vMin = l;
                             }
-                        } 
+                        }
                     }
-                } 
+                }
             }
             catch (System.IO.IOException e)
             {
@@ -90,7 +90,7 @@ namespace AireMain.Classes
         }
 
         private static int getLength(string artistName, int totalLyricLength, XElement element)
-        { 
+        {
             return getLyricsLength.GetLyricsLength(artistName, element.Value);
         }
     }

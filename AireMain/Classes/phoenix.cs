@@ -8,7 +8,8 @@ namespace AireMain.Classes
     {
         internal static string PhoenixIcon()
         {
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            colourMagic.ohLookColorMagic("phoenix");
+
             var phoenix = "";
 
             phoenix += @" .\\            //." + Environment.NewLine;
