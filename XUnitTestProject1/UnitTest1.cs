@@ -1,9 +1,11 @@
 using NUnit.Framework;
-using System; 
-namespace AireMain.Classes.Tests.Defence
+using System;
+using AireMain.Classes.Tests;
+
+namespace AireMain.Classes.Tests.GetLyricsLength
 {
     [TestFixture]
-    public class LyricsTest
+    public class Test1
     {
         [Test]
         public void CounterLyrics()

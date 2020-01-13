@@ -7,9 +7,9 @@ using System.Xml.Linq;
 
 namespace AireMain.Classes
 {
-    public class getLyricsLength
+    public class GetLyricsLength
     {
-        public static int GetLyricsLength(string artistName, string titleName)
+        public static int getLyricsLength(string artistName, string titleName)
         {
             //  Console.WriteLine("Phew, it worked:" + titleName + ":" + artistName); 
             //TODO may need to remove erronours characters from feed?
