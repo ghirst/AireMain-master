@@ -25,7 +25,7 @@ namespace AireMain.Classes
             //releaseTitles = x.Element(ns + "release-list").Descendants(ns + "title").Select(y => (string)y).ToArray()
             //Get song list from the albumns 
             var i = 0;
-            colourMagic.ohLookColorMagic("airelogic");
+            colourMagic.ohLookColorMagic("al");
 
             var totalLyricLength = 0;
             var vMax = 0;

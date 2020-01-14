@@ -10,8 +10,8 @@ namespace AireMain.Classes
         {
             switch (style.ToLower())
             {
-                case "airelogic":  //int is obviously quicker but this is easier to read! 
-                    //Client Colours (Aire Logic...)
+                case "al":  //int is obviously quicker but this is easier to read! 
+                    //Client Colours (AL...)
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.ForegroundColor = ConsoleColor.White;
                     break;
