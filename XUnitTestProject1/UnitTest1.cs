@@ -1,6 +1,4 @@
 using NUnit.Framework;
-using System;
-using AireMain.Classes.Tests;
 
 namespace AireMain.Classes.Tests.GetLyricsLength
 {
