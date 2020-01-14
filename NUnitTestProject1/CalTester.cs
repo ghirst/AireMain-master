@@ -15,8 +15,7 @@ namespace Calc.Test.CalcNameSpace
         }
 
         [TestCase(12, 6, 2)]
-        [TestCase(10, 5, 2)]
-        //[TestCase(11, 1, 1111)]
+        [TestCase(10, 5, 2)] 
         public void TestCalcTest(int a, int b, int expected)
         {
             var returnedValue = getCalcDivide.CalculatorDivider(a, b);
@@ -24,6 +23,15 @@ namespace Calc.Test.CalcNameSpace
             // act
             //Assert.AreEqual( a, b / c );
             Assert.AreEqual(expected, returnedValue);
+        }
+         
+        [TestCase(11, 1, 1111)]
+        public void TestCalcTestNotEqual(int a, int b, int expected)
+        {
+            var returnedValue = getCalcDivide.CalculatorDivider(a, b);
+
+            // act 
+            Assert.AreNotEqual(expected, returnedValue);
         }
     }
 }
