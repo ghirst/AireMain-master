@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AireMain.Classes
 {
@@ -24,7 +22,5 @@ namespace AireMain.Classes
             phoenix += @"       .'   " + Environment.NewLine;
             return phoenix;
         }
-
     }
 }
-

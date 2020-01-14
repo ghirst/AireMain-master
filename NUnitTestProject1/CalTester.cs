@@ -1,5 +1,5 @@
-using NUnit.Framework;
 using CalcNameSpace.HelloWorld;
+using NUnit.Framework;
 
 namespace Calc.Test.CalcNameSpace
 {
@@ -18,12 +18,12 @@ namespace Calc.Test.CalcNameSpace
         [TestCase(10, 5, 2)]
         //[TestCase(11, 1, 1111)]
         public void TestCalcTest(int a, int b, int expected)
-        { 
-            var returnedValue = getCalcDivide.CalculatorDivider(a,b);
+        {
+            var returnedValue = getCalcDivide.CalculatorDivider(a, b);
 
-            // act 
+            // act
             //Assert.AreEqual( a, b / c );
             Assert.AreEqual(expected, returnedValue);
-        } 
+        }
     }
 }

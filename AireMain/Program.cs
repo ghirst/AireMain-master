@@ -1,29 +1,25 @@
-﻿using System.Net;
+﻿using AireMain.Classes;
 using System;
 using System.Collections.Generic;
-using System.Xml.Linq;
-using System.Linq;
-using System.Drawing;
-using AireMain.Classes;
 using System.Threading.Tasks;
 
 namespace AireMain
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
-        {             
+        private static void Main(string[] args)
+        {
             MainAsync().Wait();
         }
 
         public static async Task MainAsync()
-        { 
-            Console.WriteLine("Let's go grab the worlds songs!"); 
+        {
+            Console.WriteLine("Let's go grab the worlds songs!");
             try
             {
                 string artistName1, artistName2;
 
-                getartistNames(out artistName1, out artistName2); 
+                getartistNames(out artistName1, out artistName2);
 
                 //TODO Loop artists
                 //Dictionary
@@ -34,9 +30,9 @@ namespace AireMain
                 Task lyricLength1 = GetAPI(artistName1);
                 Task lyricLength2 = GetAPI(artistName2);
 
-                await Task.WhenAll(lyricLength1, lyricLength2);                  
+                await Task.WhenAll(lyricLength1, lyricLength2);
             }
-            //TODO TEST!   
+            //TODO TEST!
             catch (System.IO.IOException e)
             {
                 colourMagic.ohLookColorMagic("ohno");

@@ -1,14 +1,14 @@
-using NUnit.Framework;
 using AireMain.Classes;
+using NUnit.Framework;
 
-//Don't do static next time in the code!! 
+//Don't do static next time in the code!!
 
 namespace AireMain.Test.TestingName
 {
     [TestFixture]
     public class LyricsTest
     {
-        private GetLyricsLength getLyricsLength; 
+        private GetLyricsLength getLyricsLength;
 
         [SetUp]
         public void Setup()
@@ -24,10 +24,10 @@ namespace AireMain.Test.TestingName
             var titleName = "Paradise";
             double expected = 500;
 
-            // act   
-              var lengthOfLyrics = GetLyricsLength.getLyricsLengthMethod(artistName, titleName); 
+            // act
+            var lengthOfLyrics = GetLyricsLength.getLyricsLengthMethod(artistName, titleName);
 
-            //assertvar lengthOfLyrics = 
+            //assertvar lengthOfLyrics =
             Assert.AreNotEqual(expected, lengthOfLyrics);
         }
 
@@ -39,7 +39,7 @@ namespace AireMain.Test.TestingName
             var titleName = "Paradise";
             double expected = 1208;
 
-            // act   
+            // act
             var lengthOfLyrics = GetLyricsLength.getLyricsLengthMethod(artistName, titleName);
 
             //assert

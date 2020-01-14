@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace AireMain.Classes
@@ -23,7 +20,7 @@ namespace AireMain.Classes
             XNamespace ns = "http://musicbrainz.org/ns/mmd-2.0#";
             var titleList = doc.Descendants(ns + "title");
             //releaseTitles = x.Element(ns + "release-list").Descendants(ns + "title").Select(y => (string)y).ToArray()
-            //Get song list from the albumns 
+            //Get song list from the albumns
             var i = 0;
             colourMagic.ohLookColorMagic("al");
 
@@ -85,8 +82,7 @@ namespace AireMain.Classes
             }
             finally
             {
-
             }
-        } 
+        }
     }
 }

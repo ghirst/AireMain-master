@@ -7,6 +7,6 @@
             var equalsSomething = (value1 / value2);
 
             return equalsSomething;
-        } 
+        }
     }
 }

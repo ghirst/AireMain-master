@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Xml.Linq;
+﻿using System.Net;
 
 namespace AireMain.Classes
 {
@@ -11,7 +6,7 @@ namespace AireMain.Classes
     {
         public static int getLyricsLengthMethod(string artistName, string titleName)
         {
-            //  Console.WriteLine("Phew, it worked:" + titleName + ":" + artistName); 
+            //  Console.WriteLine("Phew, it worked:" + titleName + ":" + artistName);
             //TODO may need to remove erronours characters from feed?
             //TODO error handling if not found
 
@@ -39,7 +34,7 @@ namespace AireMain.Classes
             catch
             {
                 return 0;
-            } 
+            }
         }
     }
 }
