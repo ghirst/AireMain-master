@@ -42,7 +42,7 @@ namespace AireMain.Test.TestingName
             // act   
             var lengthOfLyrics = GetLyricsLength.getLyricsLengthMethod(artistName, titleName);
 
-            //assertvar lengthOfLyrics = 
+            //assert
             Assert.AreEqual(expected, lengthOfLyrics);
         }
     }
