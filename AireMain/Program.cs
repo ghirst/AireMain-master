@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Xml.Linq;
 using System.Linq;
 using System.Drawing;
-using AireMain.Classes;
+using Calc.Classes;
 using System.Threading.Tasks;
 
-namespace AireMain
+namespace Calc
 {
     class Program
     {

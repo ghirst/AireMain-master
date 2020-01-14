@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AireMain.Classes
+namespace Calc.Classes
 {
     public class cmdImgs
     {

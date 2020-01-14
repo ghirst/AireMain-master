@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace AireMain.Classes
+namespace Calc.Classes
 {
     public class getMyStuff
     {
@@ -56,7 +56,7 @@ namespace AireMain.Classes
                 {
                     if (!myDict.ContainsValue(element.Value.ToLower())) // TODO something like a task, maybe not dictionary!
                     {
-                        var l = getLength(artistName, totalLyricLength, element);
+                        var l = GetLyricsLength.getLyricsLengthMethod(artistName, element.Value);
                         if (l > 0)
                         {
                             totalLyricLength += l;
@@ -87,11 +87,6 @@ namespace AireMain.Classes
             {
 
             }
-        }
-
-        private static int getLength(string artistName, int totalLyricLength, XElement element)
-        {
-            return GetLyricsLength.getLyricsLengthMethod(artistName, element.Value);
-        }
+        } 
     }
 }

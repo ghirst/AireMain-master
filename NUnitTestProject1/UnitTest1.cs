@@ -1,12 +1,12 @@
 using NUnit.Framework;
-using AireMain.Classes;
+using Calc.Classes;
 
-namespace AireMain.Classes.Tests.GetLyricsLength
+namespace Calc.Classes.Tests.GetLyricsLength
 {
     [TestFixture]
     public class GetLyricsLengthTests
     {
-        private static AireMain.Classes.GetLyricsLength getLyricsLengthTest;
+        private Calc.Classes.GetLyricsLength getLyricsLengthTest;
 
         [SetUp]
         public void Setup()
@@ -18,14 +18,17 @@ namespace AireMain.Classes.Tests.GetLyricsLength
         public void TestCounterLyrics()
         {
             //arrange
-           var artistName = "Coldplay";
+            var artistName = "Coldplay";
             var titleName = "Paradise";
             double expected = 500;
 
-            // act
-            var lengthOfLyrics = getLyricsLengthTest(artistName, titleName);
-             
-            //assert
+            // act 
+
+
+            //  var lengthOfLyrics = getLyricsLengthTest(artistName, titleName);
+            var lengthOfLyrics = "z";
+
+            //assertvar lengthOfLyrics = 
             Assert.AreEqual(expected, lengthOfLyrics);
         }
     }
