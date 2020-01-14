@@ -1,8 +1,8 @@
 using NUnit.Framework;
 using System;
-using MusicTest.Classes.Tests;
+using AireMain.Classes.Tests;
 
-namespace MusicTest.Classes.Tests.GetLyricsLength
+namespace AireMain.Classes.Tests.GetLyricsLength
 {
     [TestFixture]
     public class Test1

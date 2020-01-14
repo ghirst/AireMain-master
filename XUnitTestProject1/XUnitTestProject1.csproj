@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MusicTest\MusicTest.csproj" />
+    <ProjectReference Include="..\AireMain\AireMain.csproj" />
   </ItemGroup>
 
 </Project>

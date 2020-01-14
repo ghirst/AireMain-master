@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MusicTest.Classes
+namespace AireMain.Classes
 {
     public class colourMagic
     {

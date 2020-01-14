@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace MusicTest.Classes
+namespace AireMain.Classes
 {
     public class getMyStuff
     {
