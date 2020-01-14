@@ -91,7 +91,7 @@ namespace AireMain.Classes
 
         private static int getLength(string artistName, int totalLyricLength, XElement element)
         {
-            return GetLyricsLength.getLyricsLength(artistName, element.Value);
+            return GetLyricsLength.getLyricsLengthMethod(artistName, element.Value);
         }
     }
 }
