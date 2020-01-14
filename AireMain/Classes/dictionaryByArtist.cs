@@ -28,6 +28,8 @@ namespace AireMain.Classes
             var vMax = 0;
             var vMin = 0;
 
+
+            //TODO make this nice and asynced but ran out of time :-( 
             LoopSongTitles(artistName, myDict, titleList, ref i, ref totalLyricLength, ref vMax, ref vMin);
 
             ColourMagic.OhLookColorMagic("blah");
@@ -36,19 +38,26 @@ namespace AireMain.Classes
             Console.WriteLine("Smallest number of words " + vMin);
             Console.WriteLine("Largest number of words " + vMax);
             Console.WriteLine("Total singles " + artistName + ": " + i);
-            Console.WriteLine("Average word, per single, for " + artistName + ": " + (totalLyricLength / i));
 
-            //TODO Minimum
-            //TODO Maximum
-            //Maybe a DB would just be easier usually! That or save into a session etc...
+            if (i > 0)
+            {
+                Console.WriteLine("Average word, per single, for " + artistName + ": " + (totalLyricLength / i));
 
-            return totalLyricLength / i;
+                //TODO Minimum
+                //TODO Maximum
+                //Maybe a DB would just be easier usually! That or save into a session etc...
+
+                return totalLyricLength / i;
+            }
+            return 0;
         }
 
         private static void LoopSongTitles(string artistName, Dictionary<int, string> myDict, IEnumerable<XElement> titleList, ref int i, ref int totalLyricLength, ref int vMax, ref int vMin)
         {
             try
             {
+
+                //TODO Loop async
                 foreach (var element in titleList)
                 {
                     if (!myDict.ContainsValue(element.Value.ToLower())) // TODO something like a task, maybe not dictionary!
