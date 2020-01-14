@@ -1,8 +1,6 @@
 using AireMain.Classes;
 using NUnit.Framework;
 
-//Don't do static next time in the code!!
-
 namespace AireMain.Test.TestingName
 {
     [TestFixture]
