@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Xml.Linq;
 using System.Linq;
 using System.Drawing;
-using AireMain.Classes;
+using MusicTest.Classes;
 using System.Threading.Tasks;
 
-namespace AireMain
+namespace MusicTest
 {
     class Program
     {

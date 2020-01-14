@@ -1,8 +1,8 @@
 using NUnit.Framework;
 using System;
-using AireMain.Classes.Tests;
+using MusicTest.Classes.Tests;
 
-namespace AireMain.Classes.Tests.GetLyricsLength
+namespace MusicTest.Classes.Tests.GetLyricsLength
 {
     [TestFixture]
     public class Test1
@@ -22,3 +22,4 @@ namespace AireMain.Classes.Tests.GetLyricsLength
             Assert.AreEqual(expected, lengthOfLyrics);
         }
     }
+}
