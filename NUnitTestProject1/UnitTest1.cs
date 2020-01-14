@@ -1,35 +1,35 @@
-using NUnit.Framework;
-using Calc.Classes;
+//using NUnit.Framework;
+ 
 
-namespace Calc.Classes.Tests.GetLyricsLength
-{
-    [TestFixture]
-    public class GetLyricsLengthTests
-    {
-        private Calc.Classes.GetLyricsLength getLyricsLengthTest;
+////Don't do static next time in the code!! 
 
-        [SetUp]
-        public void Setup()
-        {
-            getLyricsLengthTest = new Classes.GetLyricsLength();
-        }
+//namespace Calc.Classes.Tests.GetLyricsLength
+//{
+//    [TestFixture]
+//    public class GetLyricsLengthTests
+//    {
+//        private Calc.Classes.GetLyricsLength getLyricsLengthTest;
 
-        [Test]
-        public void TestCounterLyrics()
-        {
-            //arrange
-            var artistName = "Coldplay";
-            var titleName = "Paradise";
-            double expected = 500;
+//        [SetUp]
+//        public void Setup()
+//        {
+//            getLyricsLengthTest = new Classes.GetLyricsLength();
+//        }
 
-            // act 
+//        [Test]
+//        public void TestCounterLyrics()
+//        {
+//            //arrange
+//            var artistName = "Coldplay";
+//            var titleName = "Paradise";
+//            double expected = 500;
 
+//            // act   
+//            //  var lengthOfLyrics = getLyricsLengthTest(artistName, titleName);
+//            var lengthOfLyrics = "z";
 
-            //  var lengthOfLyrics = getLyricsLengthTest(artistName, titleName);
-            var lengthOfLyrics = "z";
-
-            //assertvar lengthOfLyrics = 
-            Assert.AreEqual(expected, lengthOfLyrics);
-        }
-    }
-}
+//            //assertvar lengthOfLyrics = 
+//            Assert.AreEqual(expected, lengthOfLyrics);
+//        }
+//    }
+//}

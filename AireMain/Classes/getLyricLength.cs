@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Xml.Linq;
 
-namespace Calc.Classes
+namespace AireMain.Classes
 {
     public class GetLyricsLength
     {
