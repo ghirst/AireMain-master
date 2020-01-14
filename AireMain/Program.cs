@@ -16,10 +16,8 @@ namespace AireMain
         {
             Console.WriteLine("Let's go grab the worlds songs!");
             try
-            {
-                string artistName1, artistName2;
-
-                getartistNames(out artistName1, out artistName2);
+            {  
+                GetartistNames(out string artistName1, out string artistName2);
 
                 //TODO Loop artists
                 //Dictionary
@@ -35,7 +33,7 @@ namespace AireMain
             //TODO TEST!
             catch (System.IO.IOException e)
             {
-                colourMagic.ohLookColorMagic("ohno");
+                ColourMagic.OhLookColorMagic("ohno");
                 Console.WriteLine("Something went wrong");
                 Console.WriteLine(e);
             }
@@ -43,13 +41,13 @@ namespace AireMain
             {
                 Console.WriteLine("Done");
 
-                string phoenix = cmdImgs.PhoenixIcon();
+                string phoenix = CmdImgs.PhoenixIcon();
                 Console.WriteLine(phoenix);
                 Console.ReadLine();
             }
         }
 
-        private static void getartistNames(out string artistName1, out string artistName2)
+        private static void GetartistNames(out string artistName1, out string artistName2)
         {
             Console.WriteLine("Enter your first band name: (okay it's a test it's going to run Coldplay)");
             artistName1 = Console.ReadLine();
@@ -64,7 +62,7 @@ namespace AireMain
         {
             await Task.Run(() =>
             {
-                var artistLyricLength = getMyStuff.DictionarySongsByArtist(artistName);
+                var artistLyricLength = GetMyStuff.DictionarySongsByArtist(artistName);
 
                 return artistLyricLength;
             });

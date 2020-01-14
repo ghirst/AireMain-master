@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace AireMain.Classes
 {
-    public class getMyStuff
+    public class GetMyStuff
     {
         public static int DictionarySongsByArtist(string artistName)
         {
@@ -22,15 +22,15 @@ namespace AireMain.Classes
             //releaseTitles = x.Element(ns + "release-list").Descendants(ns + "title").Select(y => (string)y).ToArray()
             //Get song list from the albumns
             var i = 0;
-            colourMagic.ohLookColorMagic("al");
+            ColourMagic.OhLookColorMagic("al");
 
             var totalLyricLength = 0;
             var vMax = 0;
             var vMin = 0;
 
-            loopSongTitles(artistName, myDict, titleList, ref i, ref totalLyricLength, ref vMax, ref vMin);
+            LoopSongTitles(artistName, myDict, titleList, ref i, ref totalLyricLength, ref vMax, ref vMin);
 
-            colourMagic.ohLookColorMagic("blah");
+            ColourMagic.OhLookColorMagic("blah");
             Console.WriteLine(artistName);
             Console.WriteLine("Sum total of " + totalLyricLength + " words");
             Console.WriteLine("Smallest number of words " + vMin);
@@ -45,7 +45,7 @@ namespace AireMain.Classes
             return totalLyricLength / i;
         }
 
-        private static void loopSongTitles(string artistName, Dictionary<int, string> myDict, IEnumerable<XElement> titleList, ref int i, ref int totalLyricLength, ref int vMax, ref int vMin)
+        private static void LoopSongTitles(string artistName, Dictionary<int, string> myDict, IEnumerable<XElement> titleList, ref int i, ref int totalLyricLength, ref int vMax, ref int vMin)
         {
             try
             {

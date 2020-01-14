@@ -2,9 +2,9 @@
 
 namespace AireMain.Classes
 {
-    public class colourMagic
+    public class ColourMagic
     {
-        public static void ohLookColorMagic(string style)
+        public static void OhLookColorMagic(string style)
         {
             switch (style.ToLower())
             {

@@ -23,6 +23,7 @@ namespace AireMain.Test.TestingName
             double expected = 500;
 
             // act
+            //Um should use getLyricsLength but it's not behaving
             var lengthOfLyrics = GetLyricsLength.getLyricsLengthMethod(artistName, titleName);
 
             //assertvar lengthOfLyrics =

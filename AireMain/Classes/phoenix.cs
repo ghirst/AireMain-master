@@ -2,11 +2,11 @@
 
 namespace AireMain.Classes
 {
-    public class cmdImgs
+    public class CmdImgs
     {
         internal static string PhoenixIcon()
         {
-            colourMagic.ohLookColorMagic("phoenix");
+            ColourMagic.OhLookColorMagic("phoenix");
 
             var phoenix = "";
 
