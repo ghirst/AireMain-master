@@ -31,6 +31,10 @@ namespace AireMain.Classes
 
             LoopSongTitles(artistName, titleList, ref i, ref totalLyricLength, ref vMax, ref vMin);
 
+            if(i == 0)
+            {
+                i = 1;
+            }
 
             //TODO ensure this runs after the songs list!
 
