@@ -51,15 +51,14 @@ namespace AireMain.Classes
             var spacerLength = 80;
             try
             {
-                var myList = new List<KeyValuePair<int, string>>();
-
+                var myList = new List<KeyValuePair<int, string>>(); 
                 foreach (var element in titleList)
-                {
-                    //if (!myList.Contains(i, element.Value)); // TODO something like a task, maybe not dictionary!
-                    //{
-                    myList.Add(new KeyValuePair<int, string>(i, element.Value));
-                    i += 1;
-                    //}
+                { 
+                    if (!myList.Any(m => m.Value == element.Value))
+                    {
+                        myList.Add(new KeyValuePair<int, string>(i, element.Value));
+                        i += 1;
+                    }
                 }
                 //loop it
                 var lengthOfLyrics = 0;
