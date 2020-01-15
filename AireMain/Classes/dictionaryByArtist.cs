@@ -30,8 +30,12 @@ namespace AireMain.Classes
             var vMin = 0;
 
             LoopSongTitles(artistName, titleList, ref i, ref totalLyricLength, ref vMax, ref vMin);
+            return displayCompleted(artistName, ref i, totalLyricLength, vMax, vMin);
+        }
 
-            if(i == 0)
+        private static int displayCompleted(string artistName, ref int i, int totalLyricLength, int vMax, int vMin)
+        {
+            if (i == 0)
             {
                 i = 1;
             }
@@ -44,8 +48,8 @@ namespace AireMain.Classes
             Console.WriteLine("Smallest number of words " + vMin);
             Console.WriteLine("Largest number of words " + vMax);
             Console.WriteLine("Total singles " + artistName + ": " + i);
-            Console.WriteLine("Average word, per single, for " + artistName + ": " + (totalLyricLength / i)); 
-           
+            Console.WriteLine("Average word, per single, for " + artistName + ": " + (totalLyricLength / i));
+
             //Maybe a DB would just be easier usually! That or save into a session etc...
 
             return totalLyricLength / i;
