@@ -49,7 +49,7 @@ namespace AireMain
 
         private static void GetartistNames(out string artistName1, out string artistName2)
         {
-            Console.WriteLine("Enter your first band name: (okay it's a test it's going to run Coldplay)");
+            Console.WriteLine("Enter your first band name: (okay it's a test it's going to run Mike Flowers)");
             artistName1 = Console.ReadLine();
             artistName1 = "Coldplay";
 
