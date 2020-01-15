@@ -1,6 +1,5 @@
 ﻿using AireMain.Classes;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AireMain
@@ -17,13 +16,7 @@ namespace AireMain
             Console.WriteLine("Let's go grab the worlds songs!");
             try
             {  
-                GetartistNames(out string artistName1, out string artistName2);
-
-                //TODO Loop artists
-                //Dictionary
-                Dictionary<string, int> myDict = new Dictionary<string, int>();
-
-                //TODO get values for i and totalLyricLength back
+                GetartistNames(out string artistName1, out string artistName2);  
                 //I could do an array but I'm doing that elsewheres, so let's show random bits!
                 Task lyricLength1 = GetAPI(artistName1);
                 Task lyricLength2 = GetAPI(artistName2);

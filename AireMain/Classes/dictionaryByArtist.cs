@@ -31,16 +31,17 @@ namespace AireMain.Classes
 
             LoopSongTitles(artistName, titleList, ref i, ref totalLyricLength, ref vMax, ref vMin);
 
+
+            //TODO ensure this runs after the songs list!
+
             ColourMagic.OhLookColorMagic("blah");
             Console.WriteLine(artistName);
             Console.WriteLine("Sum total of " + totalLyricLength + " words");
             Console.WriteLine("Smallest number of words " + vMin);
             Console.WriteLine("Largest number of words " + vMax);
             Console.WriteLine("Total singles " + artistName + ": " + i);
-            Console.WriteLine("Average word, per single, for " + artistName + ": " + (totalLyricLength / i));
-
-            //TODO Minimum
-            //TODO Maximum
+            Console.WriteLine("Average word, per single, for " + artistName + ": " + (totalLyricLength / i)); 
+           
             //Maybe a DB would just be easier usually! That or save into a session etc...
 
             return totalLyricLength / i;
