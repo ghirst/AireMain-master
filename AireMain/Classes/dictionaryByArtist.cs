@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace AireMain.Classes
@@ -9,7 +11,6 @@ namespace AireMain.Classes
     {
         public static int DictionarySongsByArtist(string artistName)
         {
-            Dictionary<int, string> myDict = new Dictionary<int, string>();
             var url = "http://musicbrainz.org/ws/2/release-group/?query=artist:%22" + artistName + "%22%20AND%20primarytype:%22single%22";
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -28,7 +29,7 @@ namespace AireMain.Classes
             var vMax = 0;
             var vMin = 0;
 
-            LoopSongTitles(artistName, myDict, titleList, ref i, ref totalLyricLength, ref vMax, ref vMin);
+            LoopSongTitles(artistName, titleList, ref i, ref totalLyricLength, ref vMax, ref vMin);
 
             ColourMagic.OhLookColorMagic("blah");
             Console.WriteLine(artistName);
@@ -45,32 +46,40 @@ namespace AireMain.Classes
             return totalLyricLength / i;
         }
 
-        private static void LoopSongTitles(string artistName, Dictionary<int, string> myDict, IEnumerable<XElement> titleList, ref int i, ref int totalLyricLength, ref int vMax, ref int vMin)
+        private static void LoopSongTitles(string artistName, IEnumerable<XElement> titleList, ref int i, ref int totalLyricLength, ref int vMax, ref int vMin)
         {
+            var spacerLength = 80;
             try
             {
+                var myList = new List<KeyValuePair<int, string>>();
+
                 foreach (var element in titleList)
                 {
-                    if (!myDict.ContainsValue(element.Value.ToLower())) // TODO something like a task, maybe not dictionary!
+                    //if (!myList.Contains(i, element.Value)); // TODO something like a task, maybe not dictionary!
+                    //{
+                    myList.Add(new KeyValuePair<int, string>(i, element.Value));
+                    i += 1;
+                    //}
+                }
+                //loop it
+                var lengthOfLyrics = 0;
+
+                using var sequenceEnum = myList.GetEnumerator();
+                while (sequenceEnum.MoveNext())
+                {
+                    lengthOfLyrics = GetLyricsLength.getLyricsLengthMethod(artistName, sequenceEnum.Current.Value);
+                    Console.WriteLine(sequenceEnum.Current.Key + Microsoft.VisualBasic.Constants.vbTab + " " + sequenceEnum.Current.Value.PadRight(spacerLength) + totalLyricLength);
+
+                    if (lengthOfLyrics > 0)
                     {
-                        var l = GetLyricsLength.getLyricsLengthMethod(artistName, element.Value);
-                        if (l > 0)
+                        totalLyricLength += lengthOfLyrics; 
+                        if (lengthOfLyrics > vMax)
                         {
-                            totalLyricLength += l;
-                            myDict.Add(i++, element.Value.ToLower());
-                            var spacer = 80 - element.Value.Length; //Not quite right
-
-                            Console.WriteLine(i + Microsoft.VisualBasic.Constants.vbTab + " " + element.Value.PadRight(spacer) + totalLyricLength);
-                            //wondering about i, after task, async amends
-
-                            if (l > vMax)
-                            {
-                                vMax = l;
-                            }
-                            if (l < vMin || vMin == 0)
-                            {
-                                vMin = l;
-                            }
+                            vMax = lengthOfLyrics;
+                        }
+                        if (lengthOfLyrics < vMin || vMin == 0)
+                        {
+                            vMin = lengthOfLyrics;
                         }
                     }
                 }
@@ -83,6 +92,6 @@ namespace AireMain.Classes
             finally
             {
             }
-        }
+        } 
     }
 }
