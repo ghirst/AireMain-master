@@ -22,7 +22,7 @@ namespace AireMain.Classes
             var titleList = doc.Descendants(ns + "title");
             //releaseTitles = x.Element(ns + "release-list").Descendants(ns + "title").Select(y => (string)y).ToArray()
             //Get song list from the albumns
-            var i = 0;
+            var i = 1;
             ColourMagic.OhLookColorMagic("al");
 
             var totalLyricLength = 0;
@@ -36,12 +36,7 @@ namespace AireMain.Classes
         }
 
         private async static Task<(int, int)> DisplayCompleted(string artistName,int i , int totalLyricLength, int vMax, int vMin)
-        {
-            if (i == 0)
-            {
-                i = 1;
-            }
-
+        { 
             await Task.Run(() =>
             { 
                 //TODO ensure this runs after the songs list!
@@ -52,10 +47,16 @@ namespace AireMain.Classes
                 Console.WriteLine("Smallest number of words " + vMin);
                 Console.WriteLine("Largest number of words " + vMax);
                 Console.WriteLine("Total singles " + artistName + ": " + i);
+                if(i != 0)
+                { 
                 Console.WriteLine("Average word, per single, for " + artistName + ": " + (totalLyricLength / i));
-
+                }
+                else
+                {
+                    Console.WriteLine("No lyrics found for" + artistName);
+                }
                 //Maybe a DB would just be easier usually! That or save into a session etc... 
-               
+
             });
             return (i, totalLyricLength / i);
         }

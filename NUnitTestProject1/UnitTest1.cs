@@ -9,10 +9,7 @@ namespace AireMain.Test.TestingName
         private GetLyricsLength getLyricsLength;
 
         [SetUp]
-        public void Setup()
-        {
-            getLyricsLength = new GetLyricsLength();
-        }
+        public void Setup() => getLyricsLength = new GetLyricsLength();
 
         [Test]
         public void TestCounterLyricsNotEqual()
@@ -23,10 +20,9 @@ namespace AireMain.Test.TestingName
             double expected = 500;
 
             // act
-            //Um should use getLyricsLength and names
             var lengthOfLyrics = GetLyricsLength.GetLyricsLengthMethod(artistName, titleName);
 
-            //assertvar lengthOfLyrics =
+            //assert
             Assert.AreNotEqual(expected, lengthOfLyrics);
         }
 

@@ -22,8 +22,7 @@ namespace AireMain
                 Task lyricLength2 = GetAPI(artistName2);
 
                 await Task.WhenAll(lyricLength1, lyricLength2);
-            }
-            //TODO TEST!
+            } 
             catch (System.IO.IOException e)
             {
                 ColourMagic.OhLookColorMagic("ohno");
