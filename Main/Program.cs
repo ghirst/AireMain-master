@@ -46,11 +46,10 @@ namespace AireMain
 
 
         private static void getBandName(List<string> singersCollection)
-        { 
-            var artistName = "";
+        {
             Console.WriteLine("Enter a  band name or press enter to start the counting:");
-            artistName = Console.ReadLine();
-          
+            string artistName = Console.ReadLine();
+
             if (!string.IsNullOrWhiteSpace(artistName))
             { 
                 singersCollection.Add(artistName);
