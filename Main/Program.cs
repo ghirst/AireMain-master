@@ -19,7 +19,7 @@ namespace AireMain
             try
             {
                 var SingersCollection = new List<string>();
-                getBandName(SingersCollection); 
+                GetBandName(SingersCollection); 
 
                 var tasks = (from string artistName in SingersCollection
                              let task = GetMyStuff.DictionarySongsByArtistAsync(artistName)
@@ -43,7 +43,7 @@ namespace AireMain
         }
 
 
-        private static void getBandName(List<string> singersCollection)
+        private static void GetBandName(List<string> singersCollection)
         {
             Console.WriteLine("Enter a band name or press enter to start the counting:");
             string artistName = Console.ReadLine();
@@ -51,7 +51,7 @@ namespace AireMain
             if (!string.IsNullOrWhiteSpace(artistName))
             { 
                 singersCollection.Add(artistName);
-                getBandName(singersCollection);
+                GetBandName(singersCollection);
             } 
         } 
     }
