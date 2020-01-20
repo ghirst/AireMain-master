@@ -15,8 +15,8 @@ namespace AireMain
         {
             Console.WriteLine("Let's go grab the worlds songs!");
             try
-            {  
-                GetartistNames(out string artistName1, out string artistName2);  
+            {
+                GetartistNames(out string artistName1, out string artistName2);
                 //I could do an array but I'm doing that elsewheres, so let's show random bits!
                 Task lyricLength1 = GetAPI(artistName1);
                 Task lyricLength2 = GetAPI(artistName2);
@@ -42,20 +42,26 @@ namespace AireMain
 
         private static void GetartistNames(out string artistName1, out string artistName2)
         {
-            Console.WriteLine("Enter your first band name: (okay it's a test it's going to run Mike Flowers)");
+            Console.WriteLine("Enter your first band name: (okay it's a test it's going to run Coldplay)");
             artistName1 = Console.ReadLine();
-            artistName1 = "Coldplay";
+            if (string.IsNullOrWhiteSpace(artistName1))
+            {
+                artistName1 = "Coldplay";
+            }
 
-            Console.WriteLine("Enter your second band name: (okay it's a test it's going to run Nina)");
+            Console.WriteLine("Enter your seconds band name: (okay it's a test it's going to run gwyneth paltrow)");
             artistName2 = Console.ReadLine();
-            artistName2 = "Nina";
+            if (string.IsNullOrWhiteSpace(artistName1))
+            {
+                artistName2 = "gwyneth paltrow";
+            }
         }
 
         private static async Task GetAPI(string artistName)
         {
             await Task.Run(() =>
             {
-                var artistLyricLength = GetMyStuff.DictionarySongsByArtist(artistName);
+                var artistLyricLength = GetMyStuff.DictionarySongsByArtistAsync(artistName);
 
                 return artistLyricLength;
             });

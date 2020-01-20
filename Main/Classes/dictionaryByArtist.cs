@@ -9,7 +9,7 @@ namespace AireMain.Classes
 {
     public class GetMyStuff
     {
-        public static int DictionarySongsByArtist(string artistName)
+        public static async Task<int> DictionarySongsByArtistAsync(string artistName)
         {
             var url = "http://musicbrainz.org/ws/2/release-group/?query=artist:%22" + artistName + "%22%20AND%20primarytype:%22single%22";
 
@@ -28,31 +28,36 @@ namespace AireMain.Classes
             var totalLyricLength = 0;
             var vMax = 0;
             var vMin = 0;
-
+            
             LoopSongTitles(artistName, titleList, ref i, ref totalLyricLength, ref vMax, ref vMin);
-            return displayCompleted(artistName, ref i, totalLyricLength, vMax, vMin);
+            var result=  await DisplayCompleted(artistName,  i, totalLyricLength, vMax, vMin);
+           // i = result.Item1;
+            return result.Item2; 
         }
 
-        private static int displayCompleted(string artistName, ref int i, int totalLyricLength, int vMax, int vMin)
+        private async static Task<(int, int)> DisplayCompleted(string artistName,int i , int totalLyricLength, int vMax, int vMin)
         {
             if (i == 0)
             {
                 i = 1;
             }
 
-            //TODO ensure this runs after the songs list!
+            await Task.Run(() =>
+            { 
+                //TODO ensure this runs after the songs list!
 
-            ColourMagic.OhLookColorMagic("blah");
-            Console.WriteLine(artistName);
-            Console.WriteLine("Sum total of " + totalLyricLength + " words");
-            Console.WriteLine("Smallest number of words " + vMin);
-            Console.WriteLine("Largest number of words " + vMax);
-            Console.WriteLine("Total singles " + artistName + ": " + i);
-            Console.WriteLine("Average word, per single, for " + artistName + ": " + (totalLyricLength / i));
+                ColourMagic.OhLookColorMagic("blah");
+                Console.WriteLine(artistName);
+                Console.WriteLine("Sum total of " + totalLyricLength + " words");
+                Console.WriteLine("Smallest number of words " + vMin);
+                Console.WriteLine("Largest number of words " + vMax);
+                Console.WriteLine("Total singles " + artistName + ": " + i);
+                Console.WriteLine("Average word, per single, for " + artistName + ": " + (totalLyricLength / i));
 
-            //Maybe a DB would just be easier usually! That or save into a session etc...
-
-            return totalLyricLength / i;
+                //Maybe a DB would just be easier usually! That or save into a session etc... 
+               
+            });
+            return (i, totalLyricLength / i);
         }
 
         private static void LoopSongTitles(string artistName, IEnumerable<XElement> titleList, ref int i, ref int totalLyricLength, ref int vMax, ref int vMin)
@@ -75,7 +80,7 @@ namespace AireMain.Classes
                 using var sequenceEnum = myList.GetEnumerator();
                 while (sequenceEnum.MoveNext())
                 {
-                    lengthOfLyrics = GetLyricsLength.getLyricsLengthMethod(artistName, sequenceEnum.Current.Value);
+                    lengthOfLyrics = GetLyricsLength.GetLyricsLengthMethod(artistName, sequenceEnum.Current.Value);
                     Console.WriteLine(sequenceEnum.Current.Key + Microsoft.VisualBasic.Constants.vbTab + " " + sequenceEnum.Current.Value.PadRight(spacerLength) + totalLyricLength);
 
                     if (lengthOfLyrics > 0)

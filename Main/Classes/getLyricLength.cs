@@ -4,7 +4,7 @@ namespace AireMain.Classes
 {
     public class GetLyricsLength
     {
-        public static int getLyricsLengthMethod(string artistName, string titleName)
+        public static int GetLyricsLengthMethod(string artistName, string titleName)
         {
             //  Console.WriteLine("Phew, it worked:" + titleName + ":" + artistName);
             //TODO may need to remove erronours characters from feed?
