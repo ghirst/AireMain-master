@@ -1,6 +1,8 @@
 ﻿using AireMain.Classes;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace AireMain
 {
@@ -16,13 +18,16 @@ namespace AireMain
             Console.WriteLine("Let's go grab the worlds songs!");
             try
             {
-                GetartistNames(out string artistName1, out string artistName2);
-                //I could do an array but I'm doing that elsewheres, so let's show random bits!
-                Task lyricLength1 = GetAPI(artistName1);
-                Task lyricLength2 = GetAPI(artistName2);
+                var SingersCollection = new List<string>();
+                getBandName(SingersCollection); 
 
-                await Task.WhenAll(lyricLength1, lyricLength2);
-            } 
+                var tasks = (from string x in SingersCollection
+                             let task = GetAPI(x)
+                             select task).ToList();
+
+                await Task.WhenAll(tasks);
+
+            }
             catch (System.IO.IOException e)
             {
                 ColourMagic.OhLookColorMagic("ohno");
@@ -39,21 +44,18 @@ namespace AireMain
             }
         }
 
-        private static void GetartistNames(out string artistName1, out string artistName2)
-        {
-            Console.WriteLine("Enter your first band name: (okay it's a test it's going to run Coldplay)");
-            artistName1 = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(artistName1))
-            {
-                artistName1 = "Coldplay";
-            }
 
-            Console.WriteLine("Enter your seconds band name: (okay it's a test it's going to run gwyneth paltrow)");
-            artistName2 = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(artistName1))
-            {
-                artistName2 = "gwyneth paltrow";
-            }
+        private static void getBandName(List<string> singersCollection)
+        { 
+            var artistName = "";
+            Console.WriteLine("Enter a  band name or press enter to start the counting:");
+            artistName = Console.ReadLine();
+          
+            if (!string.IsNullOrWhiteSpace(artistName))
+            { 
+                singersCollection.Add(artistName);
+                getBandName(singersCollection);
+            } 
         }
 
         private static async Task GetAPI(string artistName)
