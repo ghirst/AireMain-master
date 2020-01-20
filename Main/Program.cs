@@ -21,8 +21,8 @@ namespace AireMain
                 var SingersCollection = new List<string>();
                 getBandName(SingersCollection); 
 
-                var tasks = (from string x in SingersCollection
-                             let task = GetAPI(x)
+                var tasks = (from string artistName in SingersCollection
+                             let task = GetMyStuff.DictionarySongsByArtistAsync(artistName)
                              select task).ToList();
 
                 await Task.WhenAll(tasks);
@@ -36,10 +36,8 @@ namespace AireMain
             }
             finally
             {
-                Console.WriteLine("Done");
-
-                string phoenix = CmdImgs.PhoenixIcon();
-                Console.WriteLine(phoenix);
+                Console.WriteLine("Done"); 
+                Console.WriteLine(CmdImgs.PhoenixIcon());
                 Console.ReadLine();
             }
         }
@@ -47,7 +45,7 @@ namespace AireMain
 
         private static void getBandName(List<string> singersCollection)
         {
-            Console.WriteLine("Enter a  band name or press enter to start the counting:");
+            Console.WriteLine("Enter a band name or press enter to start the counting:");
             string artistName = Console.ReadLine();
 
             if (!string.IsNullOrWhiteSpace(artistName))
@@ -55,16 +53,6 @@ namespace AireMain
                 singersCollection.Add(artistName);
                 getBandName(singersCollection);
             } 
-        }
-
-        private static async Task GetAPI(string artistName)
-        {
-            await Task.Run(() =>
-            {
-                var artistLyricLength = GetMyStuff.DictionarySongsByArtistAsync(artistName);
-
-                return artistLyricLength;
-            });
-        }
+        } 
     }
 }
