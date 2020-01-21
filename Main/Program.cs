@@ -14,7 +14,7 @@ namespace AireMain
         }
 
         public static async Task MainAsync()
-        { 
+        {
             try
             {
                 Console.WriteLine("Let's go grab the worlds songs!");
@@ -35,12 +35,12 @@ namespace AireMain
                 Console.WriteLine(e);
             }
             finally
-            { 
+            {
                 Console.WriteLine(CmdImgs.PhoenixIcon());
                 Console.ReadLine();
             }
         }
-  
+
         private static void GetBandName(List<string> singersCollection)
         {
             Console.WriteLine("Enter a band name or press enter to start the counting:");
