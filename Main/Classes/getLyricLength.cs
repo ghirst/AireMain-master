@@ -8,7 +8,7 @@ namespace AireMain.Classes
         {
             try
             {
-                //  Console.WriteLine("Phew, it worked:" + titleName + ":" + artistName);
+                //Console.WriteLine("Phew, it worked:" + titleName + ":" + artistName);
                 //TODO may need to remove erronours characters from feed?
                 //TODO error handling if not found
 
