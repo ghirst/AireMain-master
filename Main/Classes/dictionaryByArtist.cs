@@ -28,35 +28,34 @@ namespace AireMain.Classes
             var totalLyricLength = 0;
             var vMax = 0;
             var vMin = 0;
-            
+
             LoopSongTitles(artistName, titleList, ref i, ref totalLyricLength, ref vMax, ref vMin);
-            var result=  await DisplayCompleted(artistName,  i, totalLyricLength, vMax, vMin);
-           // i = result.Item1;
-            return result.Item2; 
+            var result = await DisplayCompleted(artistName, i, totalLyricLength, vMax, vMin);
+            // i = result.Item1;
+            return result.Item2;
         }
 
-        private async static Task<(int, int)> DisplayCompleted(string artistName,int i , int totalLyricLength, int vMax, int vMin)
-        { 
+        private async static Task<(int, int)> DisplayCompleted(string artistName, int i, int totalLyricLength, int vMax, int vMin)
+        {
             await Task.Run(() =>
-            { 
+            {
                 //TODO ensure this runs after the songs list!
-
                 ColourMagic.OhLookColorMagic("blah");
                 Console.WriteLine(artistName);
-                Console.WriteLine("Sum total of " + totalLyricLength + " words");
-                Console.WriteLine("Smallest number of words " + vMin);
-                Console.WriteLine("Largest number of words " + vMax);
-                Console.WriteLine("Total singles " + artistName + ": " + i);
-                if(i != 0)
-                { 
-                Console.WriteLine("Average word, per single, for " + artistName + ": " + (totalLyricLength / i));
+
+                if (i != 0)
+                {
+                    Console.WriteLine("Sum total of " + totalLyricLength + " words");
+                    Console.WriteLine("Smallest number of words " + vMin);
+                    Console.WriteLine("Largest number of words " + vMax);
+                    Console.WriteLine("Total singles " + artistName + ": " + i);
+                    Console.WriteLine("Average word, per single, for " + artistName + ": " + (totalLyricLength / i));
                 }
                 else
                 {
                     Console.WriteLine("No lyrics found for" + artistName);
                 }
-                //Maybe a DB would just be easier usually! That or save into a session etc... 
-
+                //Maybe a DB would just be easier usually! That or save into a session etc...
             });
             return (i, totalLyricLength / i);
         }
@@ -66,9 +65,9 @@ namespace AireMain.Classes
             var spacerLength = 80;
             try
             {
-                var myList = new List<KeyValuePair<int, string>>(); 
+                var myList = new List<KeyValuePair<int, string>>();
                 foreach (var element in titleList)
-                { 
+                {
                     if (!myList.Any(m => m.Value == element.Value))
                     {
                         myList.Add(new KeyValuePair<int, string>(i, element.Value));
@@ -86,7 +85,7 @@ namespace AireMain.Classes
 
                     if (lengthOfLyrics > 0)
                     {
-                        totalLyricLength += lengthOfLyrics; 
+                        totalLyricLength += lengthOfLyrics;
                         if (lengthOfLyrics > vMax)
                         {
                             vMax = lengthOfLyrics;
@@ -106,6 +105,6 @@ namespace AireMain.Classes
             finally
             {
             }
-        } 
+        }
     }
 }

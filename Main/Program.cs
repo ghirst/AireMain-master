@@ -1,8 +1,8 @@
 ﻿using AireMain.Classes;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace AireMain
 {
@@ -19,14 +19,13 @@ namespace AireMain
             try
             {
                 var SingersCollection = new List<string>();
-                GetBandName(SingersCollection); 
+                GetBandName(SingersCollection);
 
                 var tasks = (from string artistName in SingersCollection
                              let task = GetMyStuff.DictionarySongsByArtistAsync(artistName)
                              select task).ToList();
 
                 await Task.WhenAll(tasks);
-
             }
             catch (System.IO.IOException e)
             {
@@ -36,12 +35,11 @@ namespace AireMain
             }
             finally
             {
-                Console.WriteLine("Done"); 
+                Console.WriteLine("Done");
                 Console.WriteLine(CmdImgs.PhoenixIcon());
                 Console.ReadLine();
             }
         }
-
 
         private static void GetBandName(List<string> singersCollection)
         {
@@ -49,10 +47,10 @@ namespace AireMain
             string artistName = Console.ReadLine();
 
             if (!string.IsNullOrWhiteSpace(artistName))
-            { 
+            {
                 singersCollection.Add(artistName);
                 GetBandName(singersCollection);
-            } 
-        } 
+            }
+        }
     }
 }

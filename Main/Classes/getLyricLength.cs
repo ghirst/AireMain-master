@@ -6,14 +6,13 @@ namespace AireMain.Classes
     {
         public static int GetLyricsLengthMethod(string artistName, string titleName)
         {
-            //  Console.WriteLine("Phew, it worked:" + titleName + ":" + artistName);
-            //TODO may need to remove erronours characters from feed?
-            //TODO error handling if not found
-
-            string jsonLyrics;
             try
             {
-                jsonLyrics = new WebClient().DownloadString("https://api.lyrics.ovh/v1/" + artistName + "/" + titleName);
+                //  Console.WriteLine("Phew, it worked:" + titleName + ":" + artistName);
+                //TODO may need to remove erronours characters from feed?
+                //TODO error handling if not found
+
+                string jsonLyrics = new WebClient().DownloadString("https://api.lyrics.ovh/v1/" + artistName + "/" + titleName);
                 //Console.WriteLine(jsonLyrics.Length.ToString());
 
                 var l = 0;
