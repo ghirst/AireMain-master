@@ -14,10 +14,10 @@ namespace AireMain
         }
 
         public static async Task MainAsync()
-        {
-            Console.WriteLine("Let's go grab the worlds songs!");
+        { 
             try
             {
+                Console.WriteLine("Let's go grab the worlds songs!");
                 var SingersCollection = new List<string>();
                 GetBandName(SingersCollection);
 
@@ -26,6 +26,7 @@ namespace AireMain
                              select task).ToList();
 
                 await Task.WhenAll(tasks);
+                Console.WriteLine("Done");
             }
             catch (System.IO.IOException e)
             {
@@ -35,11 +36,12 @@ namespace AireMain
             }
             finally
             {
-                Console.WriteLine("Done");
+                
                 Console.WriteLine(CmdImgs.PhoenixIcon());
                 Console.ReadLine();
             }
         }
+ 
 
         private static void GetBandName(List<string> singersCollection)
         {
