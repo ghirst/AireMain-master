@@ -10,13 +10,14 @@ namespace AireMain.Test.TestingName
 
         [SetUp]
         public void Setup() => getLyricsLength = new GetLyricsLength();
+        public string artistName = "Coldplay";
+        public string titleName = "Paradise";
 
         [Test]
         public void TestCounterLyricsNotEqual()
         {
             //arrange
-            var artistName = "Coldplay";
-            var titleName = "Paradise";
+          
             double expected = 500;
 
             // act
@@ -29,16 +30,13 @@ namespace AireMain.Test.TestingName
         [Test]
         public void TestCounterLyricsEqual()
         {
-            //arrange
-            var artistName = "Coldplay";
-            var titleName = "Paradise";
-            double expected = 1208;
+            //arrange 
 
             // act
             var lengthOfLyrics = GetLyricsLength.GetLyricsLengthMethod(artistName, titleName);
 
             //assert
-            Assert.AreEqual(expected, lengthOfLyrics);
+            Assert.AreEqual((double)1208, lengthOfLyrics);
         }
     }
 }
